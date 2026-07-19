@@ -23,13 +23,17 @@ pip install -r requirements.txt
 
 3. Построение индексов
 
-`python -m src.build_indexes`
+```
+python -m src.build_indexes
+```
 
 Строит BM25-индекс и два dense FAISS-индекса (по телу и по заголовку статьи) в папке indexes/. Нужно перезапускать при любом изменении articles.f, модели эмбеддингов или связанных гиперпараметров (TITLE_REPEAT, EMBEDDING_MODEL_NAME, EMBEDDING_MAX_SEQ_LENGTH).
 
 4. Обучение learned reranker
 
-`python -m src.train_reranker`
+```
+python -m src.train_reranker
+```
 
 Обучает LightGBM LambdaMART на признаках из calibration.f, сохраняет модель в indexes/learned_reranker.pkl. В выводе печатается out-of-fold MAP@10 по 5 фолдам.
 
@@ -46,7 +50,9 @@ python -m src.evaluate --tune --skip-reranker  # то же самое, но бе
 
 6. Генерация ответа на test.f
 
-`python -m src.predict`
+```
+python -m src.predict
+```
 
 Прогоняет test.f через тот же HybridRetriever с гиперпараметрами из config.py, валидирует результат и сохраняет answer.csv в корне проекта.
 
