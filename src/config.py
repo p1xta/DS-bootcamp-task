@@ -29,8 +29,7 @@ EMBEDDING_PASSAGE_PREFIX = "passage: "
 EMBEDDING_BATCH_SIZE = 16
 EMBEDDING_MAX_SEQ_LENGTH = 1024
 
-# Модель cross-encoder реранкер
-# Если RERANKER_MODEL_NAME = None, реранкинг отключён.
+# Модель реранкер
 RERANKER_MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 RERANKER_BATCH_SIZE = 32
 RERANKER_MAX_CHARS = 1000
@@ -61,4 +60,5 @@ RERANK_TOP_N = 30
 
 FUSION_METHOD = "score"  # "rrf" / "score"
 
+# Параметр сглаживания в Reciprocal Rank Fusion
 RRF_K = 60
